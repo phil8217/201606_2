@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>報名</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script src="jquery-1.6.4.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+	
+		$(".user_data_template").hide();
+		
+		$("#user_num").change(function() {
+		
+			if($("#user_num").val()==0){
+				$('#no_select').show();
+			}else{
+				$('#no_select').hide();
+			}
+			
+			$(".user_data_list").html("");
+			
+			for(i=1;i<=$("#user_num").val();i++){
+				$(".user_data_list").append($(".user_data_template").html());
+			}
+			
+		});
+	});
+</script>
+<script language="javascript">
+function Alert(){
+alert("尚未開放報名，將回到首頁");
+location.href ="index.html";
+}
+</script>
+</head>
+<body>
+	<table border="0" id="table_main">
+		<tr>
+		<td  bgcolor="#dcbaf4" background="images/bg.png"><span class="top_nar"><a href="index.html"> 首頁</a>│<a href="schedule.html">行程規劃</a>  │ <a href="nameit.html">報名</a>│<a href="about.html"> 關於本網</a></span></td>
+		<td width="2">
+			<img src="images/spacer.gif" width="1" height="62" alt="" /></td>
+	</tr>
+	<tr>
+		<td colspan="4"><img src="images/台北101.jpg" width="800" height="400" /></td>
+		<tr>
+			<td width="968" valign="top">
+				<form name="form1">
+					<div id="content">
+						<h2 align="center">【 線 上 報 名 】</h2>
+						<div class="user_num">
+							報名人數：
+							<select name="user_num" id="user_num">
+								<option>0</option>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+								<option>8</option>
+								<option>9</option>
+								<option>10</option>
+							</select>
+						</div>
+						<div class="user_data" id="no_select">請選擇報名人數！</div>
+						<div class="user_data_list">
+							<!-- 動態表單產生處 -->
+						</div>
+						<div align="center">
+							<input type="button" onclick="Alert()" value="送出報名"></input>
+						</div>
+					</div>
+				</form>
+			</td>
+		</tr>
+		<tr>
+			<td id="footer">&nbsp;</td>
+		</tr>
+	</table>
+	
+	<!-- 報名資料欄位範本 -->
+	<div class="user_data_template">
+		<div class="user_data">
+			◎姓名：<input type="text" name="user_name" id="user_name" />
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			◎性別：<select name="user_sex" id="user_sex"><option>男</option><option>女</option></select>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			◎年齡：<input type="text" name="user_age" id="user_age" size="5" />
+		</div>
+	</div>
+	
+</body>
+</html>
